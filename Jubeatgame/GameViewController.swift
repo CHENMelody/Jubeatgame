@@ -8,7 +8,7 @@
 
 import UIKit
 import SpriteKit
-
+//add by mingyi
 class GameViewController: UIViewController {
 
     override func viewDidLoad() {
