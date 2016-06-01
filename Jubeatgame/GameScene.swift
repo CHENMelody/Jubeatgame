@@ -23,6 +23,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     var texturearray = [SKTexture]()
     var toucharray = [SKSpriteNode]()
 
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         self.physicsWorld.gravity = CGVectorMake(0,0);
