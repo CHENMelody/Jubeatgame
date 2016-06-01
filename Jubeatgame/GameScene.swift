@@ -7,7 +7,6 @@
 //
 
 import SpriteKit
-class GameScene: SKScene {
 
 
 struct PhysicsCatagory{
@@ -24,40 +23,87 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     var texturearray = [SKTexture]()
     var toucharray = [SKSpriteNode]()
 
-
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!"
-        myLabel.fontSize = 45
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
         
-        self.addChild(myLabel)
+        self.physicsWorld.gravity = CGVectorMake(0,0);
+        self.physicsWorld.contactDelegate = self
+        
+        background = SKSpriteNode(imageNamed: "background1")
+        background.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
+        
+        for(var i = 1;i<=13;i++){
+            let texturename = "touch\(i)"
+            texturearray.append(SKTexture(imageNamed: texturename))
+    
+        }
+        for(var i = 0;i<16;i++){
+            touch = SKSpriteNode(imageNamed: "touch1")
+            touch.position = CGPoint(x: 360 + ((i%4)*100) , y:100 + ((i/4)*100))
+            touch.size = CGSizeMake(90, 90)
+            touch.physicsBody = SKPhysicsBody(circleOfRadius:
+                (touch.size.width))
+            
+            touch.physicsBody?.categoryBitMask = PhysicsCatagory.Brick
+            touch.physicsBody?.contactTestBitMask = PhysicsCatagory.Check
+            touch.physicsBody?.collisionBitMask = PhysicsCatagory.Check
+            token.physicsBody?.dynamic = false
+            touch.name = "brick"
+            toucharray.append(touch)
+            
+            self.addChild(toucharray[i])
+            toucharray[i].runAction(SKAction.repeatActionForever(SKAction.animateWithTextures(texturearray, timePerFrame:0.05)))
+        }
+        
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        /* Called when a touch begins */
-        
         for touch in touches {
             let location = touch.locationInNode(self)
+            let action = SKAction.rotateByAngle(0, duration:1)
+            let doneaction = SKAction.removeFromParent()
             
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
+            token = SKSpriteNode(imageNamed: "token")
+            token.physicsBody = SKPhysicsBody(circleOfRadius:
+                (token.size.width/2))
+            token.position = CGPoint(x: location.x , y: location.y)
+            token.physicsBody?.categoryBitMask = PhysicsCatagory.Check
+            token.physicsBody?.contactTestBitMask = PhysicsCatagory.Brick
+            token.physicsBody?.collisionBitMask = 0
             
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
+            token.name = "token"
+            token.physicsBody?.dynamic = true
             
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
             
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
+            token.runAction(SKAction.sequence([action,doneaction]))
+            self.addChild(token)
         }
     }
    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        
+    }
+    func didBeginContact(contact: SKPhysicsContact) {
+        let firstbody = contact.bodyA.node as! SKSpriteNode
+        let secondbody = contact.bodyB.node as! SKSpriteNode
+        
+        
+        if( ((firstbody.name == "brick" ) && ( secondbody.name == "token")) ){
+            //            firstbody.removeFromParent()
+            //            secondbody.removeFromParent()
+            print("bomb\n");
+        }
+        else if (((firstbody.name == "token" ) && (secondbody.name == "brick ")) ){
+            print("nothing!\n")
+            
+        }
+    }
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
     
-    }
+
 }
