@@ -7,8 +7,24 @@
 //
 
 import SpriteKit
-
 class GameScene: SKScene {
+
+
+struct PhysicsCatagory{
+    static let Brick: UInt32 = 0x1 << 0 
+    static let Check: UInt32 = 0x1 << 1
+    
+
+}
+
+class GameScene: SKScene,SKPhysicsContactDelegate {
+    var touch = SKSpriteNode()
+    var token = SKSpriteNode()
+    var background = SKSpriteNode()
+    var texturearray = [SKTexture]()
+    var toucharray = [SKSpriteNode]()
+
+
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         let myLabel = SKLabelNode(fontNamed:"Chalkduster")
@@ -41,5 +57,7 @@ class GameScene: SKScene {
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+    }
+    
     }
 }
