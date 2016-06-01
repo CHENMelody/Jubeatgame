@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA1A07611CFC104F00BE3B25 /* PageControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A07601CFC104F00BE3B25 /* PageControlViewController.swift */; };
 		BA21916D1CF9A0E200B7046F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA21916C1CF9A0E200B7046F /* AppDelegate.swift */; };
 		BA21916F1CF9A0E200B7046F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BA21916E1CF9A0E200B7046F /* GameScene.sks */; };
 		BA2191711CF9A0E200B7046F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2191701CF9A0E200B7046F /* GameScene.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA1A07601CFC104F00BE3B25 /* PageControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageControlViewController.swift; sourceTree = "<group>"; };
 		BA2191691CF9A0E200B7046F /* Jubeatgame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jubeatgame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA21916C1CF9A0E200B7046F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA21916E1CF9A0E200B7046F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				BA2191701CF9A0E200B7046F /* GameScene.swift */,
 				BA2191721CF9A0E200B7046F /* GameViewController.swift */,
 				BA2191741CF9A0E200B7046F /* Main.storyboard */,
+				BA1A07601CFC104F00BE3B25 /* PageControlViewController.swift */,
 				BA2191771CF9A0E200B7046F /* Assets.xcassets */,
 				BA2191791CF9A0E200B7046F /* LaunchScreen.storyboard */,
 				BA21917C1CF9A0E200B7046F /* Info.plist */,
@@ -146,6 +149,7 @@
 				BA2191711CF9A0E200B7046F /* GameScene.swift in Sources */,
 				BA2191731CF9A0E200B7046F /* GameViewController.swift in Sources */,
 				BA21916D1CF9A0E200B7046F /* AppDelegate.swift in Sources */,
+				BA1A07611CFC104F00BE3B25 /* PageControlViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +301,7 @@
 				BA2191811CF9A0E200B7046F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
