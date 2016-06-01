@@ -10,7 +10,7 @@ import SpriteKit
 
 
 struct PhysicsCatagory{
-    static let Brick: UInt32 = 0x1 << 0
+    static let Brick: UInt32 = 0x1 << 0 
     static let Check: UInt32 = 0x1 << 1
     
 
