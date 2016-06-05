@@ -12,6 +12,11 @@ import SpriteKit
 
 class GameViewController: UIViewController {
 
+    var Level   :Int = 1
+    var ImgName :String = ""
+    var Song    :String = ""
+    @IBOutlet weak var AlbumCover: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,6 +33,14 @@ class GameViewController: UIViewController {
             scene.scaleMode = .AspectFill
             
             skView.presentScene(scene)
+            
+            //set Album Cover's image
+            self.AlbumCover.image = UIImage(named: ImgName as! String)
+            
+            //output testing
+            print("Level = \(Level)")
+            print("ImgName = \(ImgName)")
+            print("Song = \(Song)")
         }
     }
 
@@ -50,5 +63,17 @@ class GameViewController: UIViewController {
 
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    
+    //Passing data to next page
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        
+        if segue.identifier == "toRecordview" {
+
+        }
+        
+        
     }
 }

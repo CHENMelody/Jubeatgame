@@ -15,6 +15,8 @@
 		BA2191761CF9A0E200B7046F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA2191741CF9A0E200B7046F /* Main.storyboard */; };
 		BA2191781CF9A0E200B7046F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA2191771CF9A0E200B7046F /* Assets.xcassets */; };
 		BA21917B1CF9A0E200B7046F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA2191791CF9A0E200B7046F /* LaunchScreen.storyboard */; };
+		BAF7A9721D03CC720089856D /* song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BAF7A9711D03CC720089856D /* song.mp3 */; };
+		BAF7A9741D03E9CC0089856D /* recordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF7A9731D03E9CC0089856D /* recordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		BA2191771CF9A0E200B7046F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA21917A1CF9A0E200B7046F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA21917C1CF9A0E200B7046F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAF7A9711D03CC720089856D /* song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = song.mp3; path = ../../../Downloads/song.mp3; sourceTree = "<group>"; };
+		BAF7A9731D03E9CC0089856D /* recordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,12 +64,14 @@
 		BA21916B1CF9A0E200B7046F /* Jubeatgame */ = {
 			isa = PBXGroup;
 			children = (
+				BAF7A9711D03CC720089856D /* song.mp3 */,
 				BA21916C1CF9A0E200B7046F /* AppDelegate.swift */,
 				BA21916E1CF9A0E200B7046F /* GameScene.sks */,
 				BA2191701CF9A0E200B7046F /* GameScene.swift */,
-				BA2191721CF9A0E200B7046F /* GameViewController.swift */,
-				BA2191741CF9A0E200B7046F /* Main.storyboard */,
 				BA1A07601CFC104F00BE3B25 /* PageControlViewController.swift */,
+				BA2191721CF9A0E200B7046F /* GameViewController.swift */,
+				BAF7A9731D03E9CC0089856D /* recordViewController.swift */,
+				BA2191741CF9A0E200B7046F /* Main.storyboard */,
 				BA2191771CF9A0E200B7046F /* Assets.xcassets */,
 				BA2191791CF9A0E200B7046F /* LaunchScreen.storyboard */,
 				BA21917C1CF9A0E200B7046F /* Info.plist */,
@@ -133,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA21916F1CF9A0E200B7046F /* GameScene.sks in Resources */,
+				BAF7A9721D03CC720089856D /* song.mp3 in Resources */,
 				BA21917B1CF9A0E200B7046F /* LaunchScreen.storyboard in Resources */,
 				BA2191781CF9A0E200B7046F /* Assets.xcassets in Resources */,
 				BA2191761CF9A0E200B7046F /* Main.storyboard in Resources */,
@@ -149,6 +156,7 @@
 				BA2191711CF9A0E200B7046F /* GameScene.swift in Sources */,
 				BA2191731CF9A0E200B7046F /* GameViewController.swift in Sources */,
 				BA21916D1CF9A0E200B7046F /* AppDelegate.swift in Sources */,
+				BAF7A9741D03E9CC0089856D /* recordViewController.swift in Sources */,
 				BA1A07611CFC104F00BE3B25 /* PageControlViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
