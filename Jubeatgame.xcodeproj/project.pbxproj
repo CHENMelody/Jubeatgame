@@ -71,9 +71,9 @@
 				BA1A07601CFC104F00BE3B25 /* PageControlViewController.swift */,
 				BA2191721CF9A0E200B7046F /* GameViewController.swift */,
 				BAF7A9731D03E9CC0089856D /* recordViewController.swift */,
+				BA2191791CF9A0E200B7046F /* LaunchScreen.storyboard */,
 				BA2191741CF9A0E200B7046F /* Main.storyboard */,
 				BA2191771CF9A0E200B7046F /* Assets.xcassets */,
-				BA2191791CF9A0E200B7046F /* LaunchScreen.storyboard */,
 				BA21917C1CF9A0E200B7046F /* Info.plist */,
 			);
 			path = Jubeatgame;

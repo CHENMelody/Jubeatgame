@@ -20,8 +20,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gray-button" translatesAutoresizingMaskIntoConstraints="NO" id="4Vn-bD-9Tl">
                                 <rect key="frame" x="185" y="109" width="209" height="141"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="9999999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18Z-Tb-FU6">
-                                <rect key="frame" x="202" y="177" width="175" height="44"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0000000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18Z-Tb-FU6">
+                                <rect key="frame" x="201" y="177" width="176" height="47"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="39"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -33,7 +33,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="img1" translatesAutoresizingMaskIntoConstraints="NO" id="nqu-9m-tiv">
-                                <rect key="frame" x="20" y="100" width="150" height="150"/>
+                                <rect key="frame" x="28" y="109" width="141" height="141"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -45,7 +45,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1653" y="310"/>
+            <point key="canvasLocation" x="1609" y="310"/>
         </scene>
         <!--Page Control View Controller-->
         <scene sceneID="yzc-9g-pjR">
@@ -65,6 +65,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Music-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Ge8-YF-QcB">
                                 <rect key="frame" x="175" y="92" width="65" height="65"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kzp-Kn-SQG">
+                                <rect key="frame" x="77" y="273" width="260" height="260"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ShiningStar-icon" translatesAutoresizingMaskIntoConstraints="NO" id="prR-l5-SJJ">
                                 <rect key="frame" x="101" y="218" width="36" height="36"/>
                             </imageView>
@@ -83,22 +86,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="start_icon" translatesAutoresizingMaskIntoConstraints="NO" id="l4O-uA-Vnn">
                                 <rect key="frame" x="133" y="559" width="149" height="54"/>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qrr-RL-aIC">
-                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
-                                <items>
-                                    <barButtonItem systemItem="play" id="15t-JV-Xjj">
-                                        <connections>
-                                            <action selector="play:" destination="UBT-uy-gDz" id="5h0-cE-XYX"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="CpG-qY-U12"/>
-                                    <barButtonItem systemItem="pause" id="fuZ-zC-HBL">
-                                        <connections>
-                                            <action selector="pause:" destination="UBT-uy-gDz" id="LeM-uE-Scj"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsc-Sd-XtJ">
                                 <rect key="frame" x="145" y="567" width="124" height="37"/>
                                 <state key="normal">
@@ -138,9 +125,28 @@
                                     <action selector="L5Button:" destination="UBT-uy-gDz" eventType="touchUpInside" id="con-08-ia6"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kzp-Kn-SQG">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1h-Bc-0th">
                                 <rect key="frame" x="77" y="273" width="260" height="260"/>
-                            </imageView>
+                                <connections>
+                                    <action selector="showHighestScore:" destination="UBT-uy-gDz" eventType="touchUpInside" id="1Dn-Db-064"/>
+                                </connections>
+                            </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qrr-RL-aIC">
+                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="play" id="15t-JV-Xjj">
+                                        <connections>
+                                            <action selector="play:" destination="UBT-uy-gDz" id="5h0-cE-XYX"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="CpG-qY-U12"/>
+                                    <barButtonItem systemItem="pause" id="fuZ-zC-HBL">
+                                        <connections>
+                                            <action selector="pause:" destination="UBT-uy-gDz" id="LeM-uE-Scj"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -149,6 +155,7 @@
                             <outletCollection property="gestureRecognizers" destination="jMJ-wS-UR0" appends="YES" id="mn0-M5-fID"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" id="xYK-A5-8T1"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="LeftSwipe1" destination="WdU-oC-tBe" id="pUe-Db-5jb"/>
@@ -216,14 +223,23 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="play_again_icon" translatesAutoresizingMaskIntoConstraints="NO" id="U4D-4N-sao">
                                 <rect key="frame" x="300" y="660" width="94" height="56"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIx-wr-rhP">
+                                <rect key="frame" x="300" y="660" width="94" height="56"/>
+                                <connections>
+                                    <action selector="playAgain:" destination="Kf4-dG-7Nu" eventType="touchUpInside" id="R20-VX-gad"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <segue destination="UBT-uy-gDz" kind="show" identifier="backToHomePageView" id="uNE-ap-f8x"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="29x-vc-p7y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2276" y="310"/>
+            <point key="canvasLocation" x="2230" y="304"/>
         </scene>
     </scenes>
     <resources>

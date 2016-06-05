@@ -34,8 +34,14 @@ class GameViewController: UIViewController {
             
             skView.presentScene(scene)
             
+     
+            
             //set Album Cover's image
             self.AlbumCover.image = UIImage(named: ImgName as! String)
+            //add Shadow effect to Album Cover
+            self.AlbumCover.layer.shadowOpacity = 0.8
+            self.AlbumCover.layer.shadowColor = UIColor.blackColor().CGColor
+            self.AlbumCover.layer.shadowOffset = CGSize(width: 1, height: 1)
             
             //output testing
             print("Level = \(Level)")
@@ -66,14 +72,4 @@ class GameViewController: UIViewController {
     }
     
     
-    //Passing data to next page
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        
-        if segue.identifier == "toRecordview" {
-
-        }
-        
-        
-    }
 }
