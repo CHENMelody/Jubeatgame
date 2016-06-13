@@ -8,15 +8,38 @@
 
 import UIKit
 import SpriteKit
+import AVFoundation
 
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController ,AVAudioPlayerDelegate{
+
+    var audioPlayer : AVAudioPlayer!
+//    var timer : NSTimer!
+
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // play music
+        let path = NSBundle.mainBundle().pathForResource("piano", ofType: "mp3")
+        let fileData = NSData(contentsOfFile: path!)
+        audioPlayer = try! AVAudioPlayer(data: fileData!)
+        
+        self.audioPlayer.delegate = self
+        
+        if(audioPlayer != nil){
+            if(audioPlayer.prepareToPlay()){
+                self.audioPlayer.play()
+//                timer = NSTimer.scheduledTimerWithTimeInterval(1, target:self,selector:Selector("ProduceBrick"), userInfo: nil,repeats: true)
+            }
+        }
+        
+        ///----end
+        
+       
         if let scene = GameScene(fileNamed:"GameScene") {
             // Configure the view.
+
             let skView = self.view as! SKView
             skView.showsFPS = true
             skView.showsNodeCount = true
@@ -51,4 +74,10 @@ class GameViewController: UIViewController {
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
+
+    func ProduceBrick(){
+        print("1s 1 brick")
+    
+    }
+
 }

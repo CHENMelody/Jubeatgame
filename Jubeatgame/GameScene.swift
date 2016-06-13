@@ -13,97 +13,152 @@ struct PhysicsCatagory{
     static let Brick: UInt32 = 0x1 << 0 
     static let Check: UInt32 = 0x1 << 1
     
+    
 
 }
 
 class GameScene: SKScene,SKPhysicsContactDelegate {
-    var touch = SKSpriteNode()
+    var score :UInt32 = 0
     var token = SKSpriteNode()
+    var scoreNode = SKLabelNode()
+    var comboNode = SKLabelNode()
     var background = SKSpriteNode()
     var texturearray = [SKTexture]()
+    var NumbertextureArray = [SKTexture]()
+    var touchcount = 0
     var toucharray = [SKSpriteNode]()
-
-    
+    var timer = NSTimer!()
+    var bricks = Brick()
+    var positonarray = BrickPosition()
+    var mode = 0
+    var time = CFTimeInterval(0)
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
-        
-        self.physicsWorld.gravity = CGVectorMake(0,0);
+
+        let brickground = SKSpriteNode(imageNamed: "brickbackground")
+        brickground.size = CGSizeMake(420 ,420)
+        brickground.position = CGPointMake(512, 200)
+        brickground.zPosition = -1
+        self.addChild(brickground)
+
+        self.view?.multipleTouchEnabled = true
+        self.backgroundColor = SKColor.clearColor()
+//        self.physicsWorld.gravity = CGVectorMake(0,0);
         self.physicsWorld.contactDelegate = self
+        self.addChild(bricks)
+        scoreNode.position = CGPointMake(500, 450)
+        self.addChild(scoreNode)
+        comboNode.position = CGPointMake(500,550)
+        self.addChild(comboNode)
+        bricks.makeBrickArray()
         
-        background = SKSpriteNode(imageNamed: "background1")
-        background.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
+        self.addChild(bricks.brickarray[16])
+        bricks.isPreparetoNextMode = true
         
-        for(var i = 1;i<=13;i++){
-            let texturename = "touch\(i)"
-            texturearray.append(SKTexture(imageNamed: texturename))
-    
-        }
-        for(var i = 0;i<16;i++){
-            touch = SKSpriteNode(imageNamed: "touch1")
-            touch.position = CGPoint(x: 360 + ((i%4)*100) , y:100 + ((i/4)*100))
-            touch.size = CGSizeMake(90, 90)
-            touch.physicsBody = SKPhysicsBody(circleOfRadius:
-                (touch.size.width))
-            
-            touch.physicsBody?.categoryBitMask = PhysicsCatagory.Brick
-            touch.physicsBody?.contactTestBitMask = PhysicsCatagory.Check
-            touch.physicsBody?.collisionBitMask = PhysicsCatagory.Check
-            token.physicsBody?.dynamic = false
-            touch.name = "brick"
-            toucharray.append(touch)
-            
-            self.addChild(toucharray[i])
-            toucharray[i].runAction(SKAction.repeatActionForever(SKAction.animateWithTextures(texturearray, timePerFrame:0.05)))
-        }
+        
+        
+        
+        
+//        RandomProduceBrick()
+        
+        
+        
         
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        /* Called when a touch begins */
+        
+        
         for touch in touches {
             let location = touch.locationInNode(self)
-            let action = SKAction.rotateByAngle(0, duration:1)
+            
+            let action = SKAction.rotateByAngle(360, duration:1)
             let doneaction = SKAction.removeFromParent()
-            
-            token = SKSpriteNode(imageNamed: "token")
-            token.physicsBody = SKPhysicsBody(circleOfRadius:
-                (token.size.width/2))
-            token.position = CGPoint(x: location.x , y: location.y)
-            token.physicsBody?.categoryBitMask = PhysicsCatagory.Check
-            token.physicsBody?.contactTestBitMask = PhysicsCatagory.Brick
-            token.physicsBody?.collisionBitMask = 0
-            
-            token.name = "token"
-            token.physicsBody?.dynamic = true
-            
-            
-            token.runAction(SKAction.sequence([action,doneaction]))
+            token = Jpoint()
+            token.position = location
+//            print("\(token.physicsBody?.categoryBitMask)")
             self.addChild(token)
+            token.runAction(SKAction.sequence([action,doneaction]))
+            
         }
     }
    
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
-        
     }
     func didBeginContact(contact: SKPhysicsContact) {
-        let firstbody = contact.bodyA.node as! SKSpriteNode
+        let firstbody = contact.bodyA.node as! Brick
         let secondbody = contact.bodyB.node as! SKSpriteNode
         
-        
-        if( ((firstbody.name == "brick" ) && ( secondbody.name == "token")) ){
-            //            firstbody.removeFromParent()
-            //            secondbody.removeFromParent()
-            print("bomb\n");
-        }
-        else if (((firstbody.name == "token" ) && (secondbody.name == "brick ")) ){
-            print("nothing!\n")
+       
+        if( ((firstbody.name == "brick" ) && ( secondbody.name == "Jpoint")) ){
+//            firstbody.removeFromParent()
+            let BrickTextureName = firstbody.texture?.description
+            let range = Range(start: BrickTextureName!.startIndex.advancedBy(18), end: BrickTextureName!.startIndex.advancedBy(19))
+            let imgscore = Int((BrickTextureName?.substringWithRange(range))! )! + 1
             
+            firstbody.isCombo = true
+//            print("b:\(bricks.isCombo)")
+//            print("\(firstbody.name)")
+            if(bricks.combo != 0){
+                comboNode.text = "\(bricks.combo)"
+            }
+            score = UInt32((5 - abs(imgscore - 5) ) * 100) + score
+            scoreNode.text = "\(score)"
         }
+        
+//        else if (((firstbody.name == "Jpoint" ) && (secondbody.name == "brick ")) ){
+//            print("nothing!\n")
+//            
+//        }
     }
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        time = time + 1
+        if(time % 60 == 0){
+//            print("\(time)")
+//            print("\(currentTime)")
+            if(bricks.isCombo == false){
+                comboNode.text = ""
+                bricks.combo = 0
+                
+            }
+            
+        }
+
+        if(bricks.isPreparetoNextMode == true){
+            bricks.isPreparetoNextMode = false
+            for i in 0 ..< 16 {
+                bricks.brickarray[i].alpha = 1
+                self.addChild(bricks.brickarray[i])
+            }
+            self.mode = Int(arc4random_uniform(3) )
+            if(self.mode == 0){
+                bricks.mode1()
+            }
+            else if(self.mode == 1){
+                bricks.mode2()
+            }
+            else if(self.mode == 2){
+                bricks.mode3()
+            }
+                
+            else{
+                bricks.isPreparetoNextMode = true
+            }
+        }
+    
+    
     }
     
+    func RandomProduceBrick(){
+        let action1 = SKAction.repeatActionForever(SKAction.animateWithTextures(bricks.texturearray, timePerFrame: 0.1))
+        for i in 0...15{
+            self.addChild(bricks.brickarray[i])
+            self.bricks.brickarray[i].runAction(action1)
+        }
+
+    }
 
 }
